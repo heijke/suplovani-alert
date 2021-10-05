@@ -21,7 +21,7 @@ Níže parsování textu vysvětleno:
 # Načte ssps.cz
 curl -s "https://www.ssps.cz/" | 
 # Vybere div element se suplováním
-awk '/supplementation-report/,/<\/div>/' | 
+sed -n -e '/supplementation-report/,/<\/div>/p' | 
 # Vybere řádek/ky se zadanou zkratkou
 grep " $1?*" | 
 # Odstraní z řádku html tagy
